@@ -9,15 +9,15 @@ public class FirstAndLastPosition {
         int[] arrayToSearch = {1,2,5,7,7,7,7,7,8,8, 10, 20};
         int target = 7;
         int[] indexesOfTarget = firstAndLastPosition(arrayToSearch, target);
-        System.out.println("Index of target " + target + " in given sorted array " + Arrays.toString(arrayToSearch) + " is " + Arrays.toString(indexesOfTarget));
+        System.out.println("Index of target " + target +  " in given sorted array " + Arrays.toString(arrayToSearch) + " is " + Arrays.toString(indexesOfTarget));
     }
 
     static int [] firstAndLastPosition(int[] array, int target) {
         int[] indexesOfTarget = {-1, -1};
-        int firstIndex = getIndexInArrayFromBindarySearch(array, target, true);
-        int lastIndex =  getIndexInArrayFromBindarySearch(array, target, false);
-        indexesOfTarget[0] = firstIndex;
-        indexesOfTarget[1] = lastIndex;
+        indexesOfTarget[0] = getIndexInArrayFromBindarySearch(array, target, true);
+        if (indexesOfTarget[0] != -1) {
+            indexesOfTarget[1] =  getIndexInArrayFromBindarySearch(array, target, false);
+        }
         return  indexesOfTarget;
     }
 
